@@ -71,6 +71,19 @@ bool handlePoints(Projection proj[], int size){
 	return true;
 }
 
+bool handleLines(Projection projs[], int size)
+{
+	for (Projection proj: projs){
+		for (LineSegment lseg: proj.lineseg_arr){
+			for (std::string pt1: lseg.point1_labels){
+				for (std::string pt2: lseg.point2_labels){
+					
+				}
+			}
+		}
+	}
+}
+
 Solid reconstruct(Projection proj[], int size){
 	
 	Solid solid;
@@ -83,5 +96,6 @@ Solid reconstruct(Projection proj[], int size){
 
 int main()
 {
+	
 	return 0;
 }
