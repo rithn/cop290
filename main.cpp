@@ -15,13 +15,16 @@ float* solve(float a1, float b1, float c1, float a2, float b2, float c2){
 	return ans;
 }
 
-bool handlePoints(Projection proj[], int size){
+bool handlePoints(Solid* solid, Projection proj[], int size){
 	
 	if(size<2)
 		return false;  // Reconstruction isn't possible with less than 2 projs
 	
 	int i;
-	for(each point in point_arr){
+	for( std::pair<std::string, Point> elem : proj[0].point_arr ){
+		
+		String label = elem.first;
+		Point point = elem.second;
 		
 		Point c [2];
 		for(i=0;i<2;i++){
@@ -62,6 +65,7 @@ bool handlePoints(Projection proj[], int size){
 				else{
 					// System is consistent for this point
 					// final 3D point is Rp , hence you can put it in the hashtable or whatever
+					solid->point_arr.insert( {label,point} ); // WARNING!! if error, then try doubling the curly brackets
 				}
 			}			
 		}
@@ -73,9 +77,9 @@ bool handlePoints(Projection proj[], int size){
 
 Solid reconstruct(Projection proj[], int size){
 	
-	Solid solid;
-	if( !handlePoints(proj,size) )
-		return solid; // empty solid due to inconsistent points
+	Solid* solid;
+	if( !handlePoints(solid,proj,size) )
+		return solid; // empty(or with some pts) solid due to inconsistent points
 	else{
 		
 	}
