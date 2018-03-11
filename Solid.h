@@ -7,7 +7,7 @@
 class Solid 
 {
 	public: 
-		LineSegment lineseg_arr[];
+		std::unordered_map<LineSegments, bool> lineseg_arr;
 		std::unordered_map<std::string, Point> point_arr;
 		Face face_arr[];
 		Line proj_plane_arr[];

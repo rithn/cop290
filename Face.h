@@ -1,3 +1,7 @@
+#include <unordered_map>
+
+#include "LineSegment.h"
+
 class Face
 {
 	public:

@@ -1,7 +1,8 @@
 #include <iostream>
+#include <limits>
+#include <set>
 
 #include "inc.h"
-#include <limits>
 
 MAX_FLOAT = std::numeric_limits<float>::max();
 //std::numeric_limits<float>::min();
@@ -75,13 +76,29 @@ bool handlePoints(Solid* solid, Projection proj[], int size){
 	return true;
 }
 
-bool handleLines(Projection projs[], int size)
-{
+bool handleLines(Solid* solid, Projection projs[], int size)
+{	int flag;
 	for (Projection proj: projs){
-		for (LineSegment lseg: proj.lineseg_arr){
-			for (std::string pt1: lseg.point1_labels){
-				for (std::string pt2: lseg.point2_labels){
-					
+		for (std::pair<LineSegment, bool> lseg : proj.lineseg_arr){
+			for (std::string pt1: lseg.first.point1_labels){
+				for (std::string pt2: lseg.first.point2_labels){
+					flag = 0;
+					for(Projection proj2:projs){
+						set<std::string> set_pt1 = proj2.point2labels[proj2.point_arr[pt1]];
+						set<std::string> set_pt2 = proj2.point2labels[proj2.point_arr[pt2]];
+						if (set_pt1 != set_pt2 && 
+							proj2.lineseg_arr.find(LineSegment(set_pt1, set_pt2)) == proj2.lineseg_arr.end() &&
+							proj2.lineseg_arr.find(LineSegment(set_pt2, set_pt1)) == proj2.lineseg_arr.end()){
+							flag = 1;
+							break;
+						}
+					}
+					if (flag == 0){
+						set<std::string> s1, s2;
+						s1.insert(pt1);
+						s2.insert(pt2);
+						(solid -> lineseg_arr).insert({{LineSegment(s1, s2), true}});
+					}
 				}
 			}
 		}
