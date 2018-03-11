@@ -1,7 +1,8 @@
 #include <string>
+#include <set>
 
 class LineSegment
 {
 	public: 
-		std::string point1_label, point2_label;
+		set<std::string> point1_labels, point2_labels;
 };

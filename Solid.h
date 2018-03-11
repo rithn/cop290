@@ -1,5 +1,8 @@
 #include <string>
 #include <unordered_map>
+#include "Face.h"
+#include "Line.h"
+#include "Projection.h"
 
 class Solid 
 {
