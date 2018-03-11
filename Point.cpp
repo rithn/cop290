@@ -5,7 +5,7 @@ float dot(Point p , Line l){
 	return (p.x_coord * l.dir_rat1) + (p.y_coord * l.dir_rat2) + (p.z_coord * l.dir_rat3);
 }
 
-Point:: Point project(Line normal, Point origin, Line axis1, Line axis2){
+Point Point::project(Line normal, Point origin, Line axis1, Line axis2){
 	float t1,t2,s;
 	Point Rpo,ans;
 	
@@ -18,4 +18,12 @@ Point:: Point project(Line normal, Point origin, Line axis1, Line axis2){
 	
 	ans.x_coord=t1; ans.y_coord=t2; ans.z_coord=0;
 	return ans;
+}
+
+Point::Point(float x, float y, float z, std::string l)
+{
+	x_coord = x;
+	y_coord = y;
+	z_coord = z;
+	label = l;
 }
