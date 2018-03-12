@@ -117,6 +117,12 @@ Solid reconstruct(Projection proj[], int size){
 
 int main()
 {
-	
+	FILE* file = fopen("input.txt","r");
+	if(file==NULL)
+		printf("ERROR: can't open input file");
+	else{
+		Solid solid;
+		solid.getData(file);
+	}
 	return 0;
 }

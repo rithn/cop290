@@ -12,7 +12,7 @@ class Solid
 		Face face_arr[];
 		Line proj_plane_arr[];
 		
-		void getData();
+		void getData(FILE* file);
 		Projection project(Line plane);
 		void render();
 };
