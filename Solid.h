@@ -14,5 +14,5 @@ class Solid
 		
 		void getData(FILE* file);
 		Projection project(Line plane);
-		void render();
+		//void render();
 };

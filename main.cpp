@@ -1,8 +1,4 @@
-#include <iostream>
-#include <limits>
-#include <set>
-
-#include "inc.h"
+#include "main.h"
 
 MAX_FLOAT = std::numeric_limits<float>::max();
 //std::numeric_limits<float>::min();
@@ -115,7 +111,7 @@ Solid reconstruct(Projection proj[], int size){
 	}
 }
 
-int main()
+int main(int argc, char** argv)
 {
 	FILE* file = fopen("input.txt","r");
 	if(file==NULL)
@@ -124,5 +120,8 @@ int main()
 		Solid solid;
 		solid.getData(file);
 	}
+	Solid *solidptr;
+	*solidptr = solid;
+	render(solidptr, argc, argv);
 	return 0;
 }

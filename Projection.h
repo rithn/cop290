@@ -11,6 +11,6 @@ class Projection
 		std::unordered_map<std::string, Point> point_arr;
 		std::unordered_map<Point, set<std::string>> point2labels;
 		
-		void render();
+		// void render();
 		void getData();
 };
