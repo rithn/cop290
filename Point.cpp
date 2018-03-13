@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<Point.h>
+
+#include "Point.h"
 
 float dot(Point p , Line l){
 	return (p.x_coord * l.dir_rat1) + (p.y_coord * l.dir_rat2) + (p.z_coord * l.dir_rat3);

@@ -1,6 +1,13 @@
+#ifndef PROJ_H
+#define PROJ_H
+
 #include <string>
 #include <unordered_map>
 #include <set>
+
+#include "Point.h"
+#include "Line.h"
+#include "LineSegment.h"
 
 class Projection 
 {
@@ -14,3 +21,5 @@ class Projection
 		// void render();
 		void getData();
 };
+
+#endif

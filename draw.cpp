@@ -10,7 +10,7 @@
 static std::unordered_map<LineSegments, bool> lineseg_arr;
 static std::unordered_map<std::string, Point> point_arr;
 
-void DrawLines()
+void DrawSegments()
 {
 	for (std::pair<LineSegment, bool> lseg : lineseg_arr){
 		String pt_1 = *(lseg.first.point1_labels.begin());
@@ -24,7 +24,7 @@ void DrawLines()
 
 void Draw() {
 	glClear(GL_COLOR_BUFFER_BIT);
-	DrawLines();
+	DrawSegments();
 	glFlush();
 }
 

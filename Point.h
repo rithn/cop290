@@ -1,5 +1,9 @@
+#ifndef POINT_H
+#define POINT_H
+
 #include <string>
-#include <Line.h>
+#include <stdio.h>
+#include "Line.h"
 
 class Point 
 {
@@ -10,3 +14,5 @@ class Point
 		
 		Point(float x, float y, float z, std::string label);
 };
+
+#endif

@@ -2,10 +2,6 @@
 #include <limits>
 #include <set>
 
-#include "Line.h"
-#include "Point.h"
-#include "LineSegment.h"
-#include "Face.h"
 #include "Projection.h"
 #include "Solid.h"
 #include "draw.h"

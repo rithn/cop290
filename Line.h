@@ -1,3 +1,6 @@
+#ifndef LINE_H
+#define LINE_H
+
 class Line 
 {
 	public: 
@@ -7,4 +10,6 @@ class Line
 };
 
 Line choose_firstax(Line norm);
-Line choose_secondax(Line norm, ax1);
+Line choose_secondax(Line norm, Line ax1);
+
+#endif
