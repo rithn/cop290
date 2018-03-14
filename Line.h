@@ -1,6 +1,8 @@
 #ifndef LINE_H
 #define LINE_H
 
+#include <stdio.h>
+
 class Line 
 {
 	public: 

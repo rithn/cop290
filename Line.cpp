@@ -12,9 +12,10 @@ Line cross_product(Line line1, Line line2)
 Line choose_firstax(Line norm)
 {
 	Line dummy;
-	dummy.dir_rat1 = (-1.0*norm.dir_rat1)+1.0;
-	dummy.dir_rat2 = norm.dir_rat2;
-	dummy.dir_rat3 = norm.dir_rat3;
+	dummy.dir_rat1 = dummy.dir_rat2 = dummy.dir_rat3 = 1.0;
+	if (norm.dir_rat1 == norm.dir_rat2 && norm.dir_rat1 == norm.dir_rat3){
+		dummy.dir_rat1 = 2.0;
+	}
 	return cross_product(norm, dummy);	
 }
 
@@ -22,3 +23,17 @@ Line choose_secondax(Line norm, Line ax1)
 {
 	return cross_product(norm, ax1);
 }
+
+// int main(){
+	// Line x, y;
+	// x.dir_rat1 = 1.0;
+	// x.dir_rat2 = x.dir_rat3 = 0.0;
+	// y.dir_rat3 = 1.0;
+	// y.dir_rat2 = y.dir_rat1 = 0.0;
+	// Line cp = cross_product(x, y);
+	// printf("%f %f %f\n", cp.dir_rat1, cp.dir_rat2, cp.dir_rat3);
+	// Line ax1 = choose_firstax(x);
+	// printf("%f %f %f\n", ax1.dir_rat1, ax1.dir_rat2, ax1.dir_rat3);
+	// Line ax2 = choose_secondax(x, ax1);
+	// printf("%f %f %f\n", ax2.dir_rat1, ax2.dir_rat2, ax2.dir_rat3);
+// }

@@ -1,13 +1,13 @@
 #ifndef FACE_H
 #define FACE_H
 
-#include <unordered_map>
+#include <unordered_set>
 #include "LineSegment.h"
 
 class Face
 {
 	public:
-		LineSegment lineseg_arr[];
+		std::unordered_set<std::string> lineseg_arr;
 };
 
 #endif

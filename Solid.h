@@ -1,5 +1,10 @@
+#ifndef SOLID_H
+#define SOLID_H
+
 #include <string>
 #include <unordered_map>
+#include <utility>
+#include <vector>
 
 #include "Point.h"
 #include "LineSegment.h"
@@ -10,12 +15,13 @@
 class Solid 
 {
 	public: 
-		std::unordered_map<LineSegment, bool> lineseg_arr;
+		std::unordered_map<std::string, std::string> lineseg_arr;
 		std::unordered_map<std::string, Point> point_arr;
-		Face face_arr[];
-		Line proj_plane_arr[];
-		
+		//Face face_arr[];
+		std::vector<Line> proj_planes;
 		void getData(FILE* file);
 		Projection project(Line plane);
 		//void render();
 };
+
+#endif

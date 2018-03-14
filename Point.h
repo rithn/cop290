@@ -13,6 +13,7 @@ class Point
 		Point project(Line normal, Point origin, Line axis1, Line axis2);
 		
 		Point(float x, float y, float z, std::string label);
+		Point();
 };
 
 #endif

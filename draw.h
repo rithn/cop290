@@ -5,10 +5,11 @@
 #include <windows.h>
 #include <iostream>
 #include <set>
+#include <string>
 
 // #include "Point.h"
 // #include "LineSegment.h"
-// #include "Solid.h"
+#include "Solid.h"
 // #include "Projection.h"
 #include "GL/glut.h"
 

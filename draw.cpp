@@ -7,14 +7,14 @@
 
 #include "draw.h"
 
-static std::unordered_map<LineSegments, bool> lineseg_arr;
+static std::unordered_map<std::string, std::string> lineseg_arr;
 static std::unordered_map<std::string, Point> point_arr;
 
 void DrawSegments()
 {
-	for (std::pair<LineSegment, bool> lseg : lineseg_arr){
-		String pt_1 = *(lseg.first.point1_labels.begin());
-		String pt_2 = *(lseg.first.point2_labels.begin());
+	for (std::pair<std::string, std::string> lseg : lineseg_arr){
+		std::string pt_1 = lseg.first;
+		std::string pt_2 = lseg.second;
 		glBegin(GL_LINES);
 			glVertex3f(point_arr[pt_1].x_coord, point_arr[pt_1].y_coord, point_arr[pt_1].z_coord);
 			glVertex3f(point_arr[pt_2].x_coord, point_arr[pt_2].y_coord, point_arr[pt_2].z_coord);
@@ -55,8 +55,8 @@ void render(Projection *pptr, int iArgc, char** cppArgv) {
 	glutInitWindowPosition(200, 200);
 	glutCreateWindow("XoaX.net");
 	Initialize();
-	lineseg_arr = sptr -> lineseg_arr;
-	point_arr = sptr -> point_arr;
+	lineseg_arr = pptr -> lineseg_arr;
+	point_arr = pptr -> point_arr;
 	glutDisplayFunc(Draw);
 	glutMainLoop();
 }

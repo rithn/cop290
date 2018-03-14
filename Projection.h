@@ -14,9 +14,9 @@ class Projection
 	public: 
 		Point origin;
 		Line axis1, axis2, normal;
-		std::unordered_map<LineSegment, bool> lineseg_arr;
+		std::unordered_map<std::string, std::string> lineseg_arr;
 		std::unordered_map<std::string, Point> point_arr;
-		std::unordered_map<Point, set<std::string>> point2labels;
+		// std::unordered_map<Point, std::set<std::string>> point2labels;
 		
 		// void render();
 		void getData();

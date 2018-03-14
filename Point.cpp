@@ -27,3 +27,7 @@ Point::Point(float x, float y, float z, std::string l)
 	z_coord = z;
 	label = l;
 }
+
+Point::Point()
+{
+};
