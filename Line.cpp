@@ -34,6 +34,11 @@ Line choose_secondax(Line norm, Line ax1)
 	return normalise(cross_product(norm, ax1));
 }
 
+void Line::displn()
+{
+	printf("%f %f %f\n", dir_rat1, dir_rat2, dir_rat3);
+}
+
 // int main(){
 	// Line x, y;
 	// x.dir_rat1 = 1.0;

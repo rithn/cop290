@@ -115,6 +115,7 @@ int main(int argc, char** argv)
 {
 	FILE* file = fopen("input.txt","r");
 	Solid solid;
+	printf("hey\n"); 
 	if(file==NULL){
 		printf("ERROR: can't open input file");
 		return 1;
@@ -122,8 +123,10 @@ int main(int argc, char** argv)
 	else{
 		solid.getData(file);
 	}
-	Solid *solidptr;
-	*solidptr = solid;
-	render(solidptr, argc, argv);
+	printf("hey\n");
+	solid.datadisp();
+	// Solid *solidptr;
+	// *solidptr = solid;
+	// render(solidptr, argc, argv);
 	return 0;
 }

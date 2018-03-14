@@ -14,6 +14,7 @@ class Point
 		
 		Point(float x, float y, float z, std::string label);
 		Point();
+		void disppt();
 };
 
 #endif

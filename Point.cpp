@@ -32,6 +32,11 @@ Point::Point()
 {
 };
 
+void Point::disppt()
+{
+	printf("%f %f %f\n", x_coord, y_coord, z_coord);
+};
+
 // int main(){
 	// Line norm = {1.0, 1.0, 1.0};
 	// Line ax1 = choose_firstax(norm);

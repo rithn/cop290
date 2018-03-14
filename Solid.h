@@ -1,6 +1,7 @@
 #ifndef SOLID_H
 #define SOLID_H
 
+#include <stdio.h>
 #include <string>
 #include <unordered_map>
 #include <utility>
@@ -21,6 +22,7 @@ class Solid
 		std::vector<Line> proj_planes;
 		void getData(FILE* file);
 		Projection project(Line plane);
+		void datadisp();
 		//void render();
 };
 
