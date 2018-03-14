@@ -31,3 +31,15 @@ Point::Point(float x, float y, float z, std::string l)
 Point::Point()
 {
 };
+
+// int main(){
+	// Line norm = {1.0, 1.0, 1.0};
+	// Line ax1 = choose_firstax(norm);
+	// Line ax2 = choose_secondax(norm, ax1);
+	// Point ori = {3.0, 4.4 , 5.6, "ori"};
+	// Point chk = {1.0, 2.0, 3.0, "chk"};
+	// Point ans = chk.project(norm, ori, ax1, ax2);
+	// printf("%f %f %f\n", ans.x_coord, ans.y_coord, ans.z_coord);
+	// printf("%f %f %f\n", ax1.dir_rat1, ax1.dir_rat2, ax1.dir_rat3);
+	// printf("%f %f %f\n", ax2.dir_rat1, ax2.dir_rat2, ax2.dir_rat3);
+// }

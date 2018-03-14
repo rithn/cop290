@@ -1,5 +1,15 @@
 #include "Line.h"
 
+Line normalise(Line ln)
+{
+	float size = sqrt(ln.dir_rat1*ln.dir_rat1 + ln.dir_rat2*ln.dir_rat2 + ln.dir_rat3*ln.dir_rat3);
+	Line ans;
+	ans.dir_rat1 = ln.dir_rat1/size;
+	ans.dir_rat2 = ln.dir_rat2/size;
+	ans.dir_rat3 = ln.dir_rat3/size;
+	return ans;
+}
+
 Line cross_product(Line line1, Line line2)
 {
 	Line ans;
@@ -16,12 +26,12 @@ Line choose_firstax(Line norm)
 	if (norm.dir_rat1 == norm.dir_rat2 && norm.dir_rat1 == norm.dir_rat3){
 		dummy.dir_rat1 = 2.0;
 	}
-	return cross_product(norm, dummy);	
+	return normalise(cross_product(norm, dummy));	
 }
 
 Line choose_secondax(Line norm, Line ax1)
 {
-	return cross_product(norm, ax1);
+	return normalise(cross_product(norm, ax1));
 }
 
 // int main(){

@@ -2,6 +2,7 @@
 #define LINE_H
 
 #include <stdio.h>
+#include <math.h>
 
 class Line 
 {
@@ -13,5 +14,6 @@ class Line
 
 Line choose_firstax(Line norm);
 Line choose_secondax(Line norm, Line ax1);
+Line normalise(Line ln);
 
 #endif
