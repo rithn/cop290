@@ -1,12 +1,13 @@
 #include "Solid.h"
 
-void Solid::getData(FILE* file){
+void Solid::getData(ifstream file){
 	
 	// read points from file ( points: (f,f,f,s),(....), )
 	Point point;
 	float x_coord, y_coord, z_coord;
 	char* label;
-	fscanf(file,"( %f,%f,%f,%s )", &x_coord,&y_coord,&z_coord,&label);
+	//fscanf(file,"( %f,%f,%f,%s )", &x_coord,&y_coord,&z_coord,&label);
+	file>>x_coord>>y_coord>>z_coord>>label;
 	point.x_coord = x_coord;
 	point.y_coord = y_coord;
 	point.z_coord = z_coord;
@@ -14,25 +15,28 @@ void Solid::getData(FILE* file){
 	std::string lbl = std::string(label);
 	point.label = lbl;
 	point_arr[point.label] = point;
-	while(getc(file) != '\n'){
+	/*while(getc(file) != '\n'){
 		fscanf(file,"( %f,%f,%f,%s )", &x_coord,&y_coord,&z_coord,&label);
-		point.label = label;
+		std::string lbl = std::string(label);
+		point.label = lbl;
+		//point.label = label;
 		point.x_coord = x_coord;
 		point.y_coord = y_coord;
 		point.z_coord = z_coord;		
-		point_arr[label] = point; // WARNING!! if error, then try doubling the curly brackets
-	}
+		point_arr[point.label] = point; // WARNING!! if error, then try doubling the curly brackets
+	}*/
 	// read lines from file ( lines: (s1,s2),(..), )
 	std::string l1,l2;
 	// std::set<std::string> s1, s2;
 	
-	fscanf(file,"( %s ,%s )", &l1,&l2);
+	//fscanf(file,"( %s ,%s )", &l1,&l2);
+	file>>l1>>l2;
 	// s1.insert(l1);s2.insert(l2);
 	// std::pair<std::set<std::string>, std::set<std::string>> ls = std::make_pair(s1, s2);
 	printf("4 %s %s\n",l1,l2);
 	lineseg_arr[l1] = l2;
 	printf("4.5\n");
-	while(getc(file) != '\n'){
+	/*while(getc(file) != '\n'){
 		// set<std::string> s1, s2;
 	
 		fscanf(file,"( %s ,%s )", &l1,&l2);
@@ -41,22 +45,23 @@ void Solid::getData(FILE* file){
 		// std::pair<std::set<std::string>, std::set<std::string>> ls = std::make_pair(s1, s2);
 		lineseg_arr[l1] = l2;
 	}
-	
+	*/
 	// read the projection planes (planes: size (...),(...), )
 	Line normal;
 	int n,i=0;
 	float dir_rat1, dir_rat2, dir_rat3;
-	fscanf(file,"%d ( %f,%f,%f )", &n,&dir_rat1,&dir_rat2,&dir_rat3);
+	//fscanf(file,"%d ( %f,%f,%f )", &n,&dir_rat1,&dir_rat2,&dir_rat3);
+	file>>n>>dir_rat1>>dir_rat2>>dir_rat3;
 	normal = {dir_rat1, dir_rat2, dir_rat3};
 	std::vector<Line> planes;
 	planes.push_back(normal);
-	while(getc(file) != EOF){
+	/*while(getc(file) != EOF){
 		fscanf(file,"( %f,%f,%f )", &dir_rat1, &dir_rat2, &dir_rat3);
 		normal = {dir_rat1, dir_rat2, dir_rat3};
 		planes.push_back(normal);
-	}
+	}*/
 	proj_planes = planes;
-	fclose(file);
+	file.close();
 	return;
 }
 
@@ -96,7 +101,7 @@ Projection Solid::project(Line planenorm)
 int main()
 {
 	Solid tst;
-	FILE *file = fopen("input.txt", "r");
+	std::ifstream file("input.txt");
 	tst.getData(file);
 	tst.datadisp();
 	return 0;

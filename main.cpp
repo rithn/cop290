@@ -113,10 +113,11 @@ Solid *reconstruct(Projection proj[], int size){
 
 int main(int argc, char** argv)
 {
-	FILE* file = fopen("input.txt","r");
+	std::ifstream file("input.txt");
+	
 	Solid solid;
 	printf("hey\n"); 
-	if(file==NULL){
+	if(!file){
 		printf("ERROR: can't open input file");
 		return 1;
 	}
