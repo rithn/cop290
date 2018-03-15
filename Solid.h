@@ -6,6 +6,7 @@
 #include <unordered_map>
 #include <utility>
 #include <vector>
+#include <fstream>
 
 #include "Point.h"
 #include "LineSegment.h"
@@ -20,7 +21,7 @@ class Solid
 		std::unordered_map<std::string, Point> point_arr;
 		//Face face_arr[];
 		std::vector<Line> proj_planes;
-		void getData(FILE* file);
+		void getData(std::ifstream& file);
 		Projection project(Line plane);
 		void datadisp();
 		//void render();
