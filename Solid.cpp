@@ -74,12 +74,12 @@ void Solid::getData(std::ifstream& file){
 void Solid::datadisp()
 {
 	for(std::pair<std::string, Point> pt : point_arr){
-		printf("PT: %s ", pt.first);
-		printf("%s ",pt.second.label);
+		//printf("PT: %s ", pt.first);
+		std::cout << "PT: " << pt.first << " ";
 		pt.second.disppt();
 	}
 	for(std::pair<std::string, std::string> lseg : lineseg_arr){
-		printf("LS: %s %s\n", lseg.first, lseg.second);
+		std::cout << "LS: " << lseg.first << " " << lseg.second << "\n" ;
 	}
 	for(Line norm : proj_planes){
 		printf("LN: ");

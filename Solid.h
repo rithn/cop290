@@ -1,6 +1,7 @@
 #ifndef SOLID_H
 #define SOLID_H
 
+#include <iostream>
 #include <stdio.h>
 #include <string>
 #include <unordered_map>
