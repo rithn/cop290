@@ -18,7 +18,7 @@
 class Solid 
 {
 	public: 
-		std::unordered_map<std::string, std::string> lineseg_arr;
+		std::unordered_map<std::pair<std::string, std::string>, bool, pairhash> lineseg_arr;
 		std::unordered_map<std::string, Point> point_arr;
 		//Face face_arr[];
 		std::vector<Line> proj_planes;

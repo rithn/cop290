@@ -116,7 +116,6 @@ int main(int argc, char** argv)
 	std::ifstream file("input.txt");
 	
 	Solid solid;
-	printf("hey\n"); 
 	if(!file){
 		printf("ERROR: can't open input file");
 		return 1;
@@ -124,10 +123,9 @@ int main(int argc, char** argv)
 	else{
 		solid.getData(file);
 	}
-	printf("hey\n");
 	solid.datadisp();
-	// Solid *solidptr;
-	// *solidptr = solid;
-	// render(solidptr, argc, argv);
+	Solid *solidptr;
+	solidptr = &solid;
+	render(solidptr, argc, argv);
 	return 0;
 }
