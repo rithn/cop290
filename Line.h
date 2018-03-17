@@ -10,6 +10,7 @@ class Line
 		float dir_rat1, dir_rat2, dir_rat3;
 		void displn(); 
 		
+		Line(float x, float y, float z);
 };
 
 Line choose_firstax(Line norm);
