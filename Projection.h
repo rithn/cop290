@@ -1,9 +1,11 @@
 #ifndef PROJ_H
 #define PROJ_H
 
+#include <iostream>
 #include <string>
 #include <unordered_map>
 #include <set>
+#include <fstream>
 
 #include "Point.h"
 #include "Line.h"
@@ -28,7 +30,7 @@ class Projection
 		// std::unordered_map<Point, std::set<std::string>> point2labels;
 		
 		// void render();
-		void getData();
+		void getData(std::ifstream& file);
 };
 
 #endif

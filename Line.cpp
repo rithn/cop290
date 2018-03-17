@@ -39,6 +39,16 @@ void Line::displn()
 	printf("%f %f %f\n", dir_rat1, dir_rat2, dir_rat3);
 }
 
+Line::Line(float x, float y, float z)
+{
+	dir_rat1 = x;
+	dir_rat2 = y;
+	dir_rat3 = z;
+}
+
+Line::Line()
+{
+};
 // int main(){
 	// Line x, y;
 	// x.dir_rat1 = 1.0;
