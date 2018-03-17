@@ -4,6 +4,7 @@
 #include <string>
 #include <unordered_map>
 #include <set>
+#include <iostream>
 
 #include "Point.h"
 #include "Line.h"
@@ -25,8 +26,8 @@ class Projection
 		Line axis1, axis2, normal;
 		std::unordered_map<std::pair<std::string, std::string>, bool, pairhash> lineseg_arr;
 		std::unordered_map<std::string, Point> point_arr;
-		// std::unordered_map<Point, std::set<std::string>> point2labels;
-		
+		std::unordered_map<std::string, std::set<std::string>> point2labels;
+		void dispdata();
 		// void render();
 		void getData();
 };

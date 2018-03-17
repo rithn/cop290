@@ -117,7 +117,7 @@ void windowSpecial(int key, int x, int y){
 
 void Draw() {
 	
-	//printf("in draw draw\n");
+	// printf("in draw draw\n");
 	glClear(GL_COLOR_BUFFER_BIT);
 	glLoadIdentity();
 	
@@ -162,10 +162,11 @@ void render(Projection *pptr, int iArgc, char** cppArgv) {
 	glutInitWindowSize(250, 250);
 	glutInitWindowPosition(200, 200);
 	glutCreateWindow(windowname);
+	// printf("in render p\n");
 	Initialize();
-	glDisable(GL_CULL_FACE);
-	lineseg_arr = pptr -> lineseg_arr;
-	point_arr = pptr -> point_arr;
+	lineseg_arr = pptr->lineseg_arr;
+	// printf("in render pr\n");
+	point_arr = pptr->point_arr;
 	glutDisplayFunc(Draw);
 	glutKeyboardFunc(windowKey);
 	//glutSpecialFunc(windowSpecial);
