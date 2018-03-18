@@ -57,13 +57,14 @@ void Solid::datadisp()
 
 Projection Solid::project(Line planenorm)
 {
-	Point ori(5.0, 5.0, 5.0, "planeorigin");
+	Point ori(0.0, 0.0, 0.0, "planeorigin");
 	Line ax1 = choose_firstax(planenorm);
 	Line ax2 = choose_secondax(planenorm, ax1);
 	Projection proj;
 	proj.origin = ori;
 	proj.axis1 = ax1;
 	proj.axis2 = ax2;
+	proj.normal = planenorm;
 	proj.lineseg_arr = lineseg_arr;
 	for (std::pair<std::string, Point> elem : point_arr)
 	{

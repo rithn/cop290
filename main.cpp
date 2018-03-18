@@ -126,6 +126,11 @@ int main(int argc, char** argv)
 	solid.datadisp();
 	Solid *solidptr;
 	solidptr = &solid;
-	render(solidptr, argc, argv);
+	//render(solidptr, argc, argv);
+	Line n1 = {1.0, 0.0, 0.0};
+	Projection p1 = solid.project(n1);
+	// p1.normal.displn();
+	p1.dispdata();
+	render(&p1, argc, argv);
 	return 0;
 }
