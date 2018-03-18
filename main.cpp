@@ -12,6 +12,23 @@ std::pair<float, float> solve(float a1, float b1, float c1, float a2, float b2, 
 	ans.second = (a1*c2-a2*c1)/a1*b2-a2*b1;
 	return ans;
 }
+std::pair<bool,int> solvable(float a1,float a2,float a3,float b1,float b2,float b3){
+	if(a1*b2 != a2*b1)
+		return make_pair(true,3);
+	if(a2*b3 != a3*b2)
+		return make_pair(true,1);
+	if(a1*b3 != a3*b1)
+		return make_pair(true,2);
+	
+	if( (a1==0 && b1!=0 && a2!=0 && b2==0) || (a1!=0 && b1==0 && a2==0 && b2!=0) )
+		return make_pair(true,3);
+	if( (a2==0 && b2!=0 && a3!=0 && b3==0) || (a2!=0 && b2==0 && a3==0 && b3!=0) )
+		return make_pair(true,1);
+	if( (a1==0 && b1!=0 && a3!=0 && b3==0) || (a1!=0 && b1==0 && a3==0 && b3!=0) )
+		return make_pair(true,2);
+	
+	return make_pair(false,0);
+}
 
 bool handlePoints(Solid* solid, std::vector<Projection> proj, int size){
 	
@@ -36,12 +53,38 @@ bool handlePoints(Solid* solid, std::vector<Projection> proj, int size){
 		}
 		std::pair<float, float> solution;
 		// if eq is solvable i.e. a1*b2 != a2*b1
+		float a1=proj[0].normal.dir_rat1, a2=proj[0].normal.dir_rat2, a3=proj[0].normal.dir_rat3, b1=proj[1].normal.dir_rat1, b2=proj[1].normal.dir_rat2, b3=proj[1].normal.dir_rat3;
+		std::pair<bool,int> check = solvable(a1,a2,a3,b1,b2,b3);
+		bool third_check=false;
+		float s1,s2;
 		printf("hpstillin\n");
 		proj[0].normal.displn();
 		proj[1].normal.displn();
-		if(((proj[0].normal.dir_rat1)*(proj[1].normal.dir_rat2)) != ((proj[0].normal.dir_rat2)*(proj[1].normal.dir_rat1)) ){
-			//solution = solve(proj[0].normal.dir_rat1, -proj[1].normal.dir_rat1, -c[0].x_coord+c[1].x_coord, 
-									//proj[0].normal.dir_rat2, -proj[1].normal.dir_rat2, -c[0].y_coord+c[1].y_coord);
+		if( check.first ){
+			if(check.second == 3){
+				solution = solve(a1, -b1, -c[0].x_coord+c[1].x_coord, a2, -b2, -c[0].y_coord+c[1].y_coord);
+				s1 = solution.first; s2 = solution.second;
+				
+				// check for consistency in third-coordinate
+				if(a3*s1 - b3*s2 == -c[0].z_coord+c[1].z_coord)
+					third_check=true;
+			}
+			else if(check.second == 1){
+				solution = solve(a2, -b2, -c[0].y_coord+c[1].y_coord, a3, -b3, -c[0].z_coord+c[1].z_coord);
+				s1 = solution.first; s2 = solution.second;
+				
+				// check for consistency in third-coordinate
+				if(a1*s1 - b1*s2 == -c[0].x_coord+c[1].x_coord)
+					third_check=true;
+			}
+			else{ //if(check.second == 2)
+				solution = solve(a1, -b1, -c[0].x_coord+c[1].x_coord, a3, -b3, -c[0].z_coord+c[1].z_coord);
+				s1 = solution.first; s2 = solution.second;
+				
+				// check for consistency in third-coordinate
+				if(a2*s1 - b2*s2 == -c[0].y_coord+c[1].y_coord)
+					third_check=true;
+			}
 			printf("hpifori\n");								
 		}
 		else{ 
@@ -49,12 +92,11 @@ bool handlePoints(Solid* solid, std::vector<Projection> proj, int size){
 			return false;
 		}
 		
-		float s1 = solution.first;
-		float s2 = solution.second;
+		
 		Point Rp;
 		printf("hpgoingon\n");
-		// check for consistency in z-coordinate
-		if( proj[0].normal.dir_rat3*s1 - proj[1].normal.dir_rat3*s2 == -c[0].z_coord+c[1].z_coord ){
+		
+		if( third_check ){
 			Rp.x_coord = c[0].x_coord + s1*proj[0].normal.dir_rat1;
 			Rp.y_coord = c[0].y_coord + s1*proj[0].normal.dir_rat2;
 			Rp.z_coord = c[0].z_coord + s1*proj[0].normal.dir_rat3;
