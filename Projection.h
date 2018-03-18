@@ -29,8 +29,8 @@ class Projection
 		Line axis1, axis2, normal;
 		std::unordered_map<std::pair<std::string, std::string>, bool, pairhash> lineseg_arr;
 		std::unordered_map<std::string, Point> point_arr;
-		std::unordered_map<std::string, std::set<std::string>> point2labels;
-		void dispdata();
+		//std::unordered_map<std::string, std::set<std::string>> point2labels;
+		//void dispdata();
 		// void render();
 		void getData(std::ifstream& file);
 		void datadisp();

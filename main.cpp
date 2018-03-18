@@ -130,7 +130,7 @@ int main(int argc, char** argv)
 	Line n1 = {1.0, 0.0, 0.0};
 	Projection p1 = solid.project(n1);
 	// p1.normal.displn();
-	p1.dispdata();
+	p1.datadisp();
 	render(&p1, argc, argv);
 	return 0;
 }
