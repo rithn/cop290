@@ -11,6 +11,7 @@ class Line
 		void displn(); 
 		
 		Line(float x, float y, float z);
+		Line();
 };
 
 Line choose_firstax(Line norm);

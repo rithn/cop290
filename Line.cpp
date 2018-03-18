@@ -48,7 +48,7 @@ Line::Line(float x, float y, float z)
 
 Line::Line()
 {
-};
+}
 // int main(){
 	// Line x, y;
 	// x.dir_rat1 = 1.0;

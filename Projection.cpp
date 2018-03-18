@@ -39,12 +39,32 @@ void Projection::getData(std::ifstream& file){
 		ls = make_pair(l1, l2);
 		lineseg_arr[ls] = true;
 	}
-	// read the projection planes (planes: size (...),(...), )
-	Line normal;
-	float dir_rat1, dir_rat2, dir_rat3;
-	while(file>>dir_rat1>>dir_rat2>>dir_rat3){
-		normal = {dir_rat1, dir_rat2, dir_rat3};
-		proj_planes.push_back(normal);
-	}
 	return;
+}
+
+void Projection::datadisp()
+{
+	std::cout << "origin: " << origin.x_coord << " " << origin.y_coord << " " << origin.z_coord << "\n";
+	std::cout<<"axis1: "; axis1.displn();
+	std::cout<<"axis2: "; axis2.displn();
+	std::cout<<"normal: "; normal.displn();
+	
+	for(std::pair<std::string, Point> pt : point_arr){
+		std::cout << "PT: " << pt.first << " ";
+		pt.second.disppt();
+	}
+	for(std::pair<std::pair<std::string, std::string>, bool> lseg : lineseg_arr){
+		std::cout << "LS: " << lseg.first.first << " " << lseg.first.second << "\n" ;
+	}
+}
+
+Projection::Projection(){}
+
+int main()
+{
+	Projection tst;
+	std::ifstream file("inproj.txt");
+	tst.getData(file);
+	tst.datadisp();
+	return 0;
 }

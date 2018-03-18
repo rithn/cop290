@@ -2,6 +2,7 @@
 #define PROJ_H
 
 #include <iostream>
+#include <stdio.h>
 #include <string>
 #include <unordered_map>
 #include <set>
@@ -31,6 +32,8 @@ class Projection
 		
 		// void render();
 		void getData(std::ifstream& file);
+		void datadisp();
+		Projection();
 };
 
 #endif
