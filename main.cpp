@@ -127,7 +127,7 @@ int main(int argc, char** argv)
 	Solid *solidptr;
 	solidptr = &solid;
 	//render(solidptr, argc, argv);
-	Line n1 = {1.0, 0.0, 0.0};
+	Line n1 = {0.5, 0.6, 0.5};
 	Projection p1 = solid.project(n1);
 	// p1.normal.displn();
 	p1.datadisp();

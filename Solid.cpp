@@ -64,7 +64,7 @@ Projection Solid::project(Line planenorm)
 	proj.origin = ori;
 	proj.axis1 = ax1;
 	proj.axis2 = ax2;
-	proj.normal = planenorm;
+	proj.normal = normalise(planenorm);
 	proj.lineseg_arr = lineseg_arr;
 	for (std::pair<std::string, Point> elem : point_arr)
 	{

@@ -125,6 +125,7 @@ void Draw() {
 	glClear(GL_COLOR_BUFFER_BIT);
 	glLoadIdentity();
 	
+	glScalef(0.5, 0.5, 0.5);
 	glRotated(phi, 1, 0, 0);
 	glRotated(theta, 0, 1, 0);
 	glTranslated(-0.5, -0.5, -0.5);
