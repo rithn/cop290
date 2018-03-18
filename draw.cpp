@@ -8,6 +8,10 @@ const char* windowname = "render";
 
 bool swAxes = true;
 bool swValues = true;
+bool drawproj = true;
+
+Line pax1, pax2;
+Point origin;
 
 int theta = 0;
 int phi = 0;
@@ -167,6 +171,18 @@ void render(Projection *pptr, int iArgc, char** cppArgv) {
 	lineseg_arr = pptr->lineseg_arr;
 	// printf("in render pr\n");
 	point_arr = pptr->point_arr;
+	pax1 = pptr -> axis1;
+	pax2 = pptr -> axis2;
+	origin = pptr -> origin;
+	Point dummy;
+	for (std::pair<std::string, Point> pt: point_arr){
+		dummy.x_coord = pt.second.x_coord * pax1.dir_rat1 + pt.second.y_coord * pax2.dir_rat1 + origin.x_coord;
+		dummy.y_coord = pt.second.x_coord * pax1.dir_rat2 + pt.second.y_coord * pax2.dir_rat2 + origin.y_coord;
+		dummy.z_coord = pt.second.x_coord * pax1.dir_rat3 + pt.second.y_coord * pax2.dir_rat3 + origin.z_coord;
+		point_arr[pt.first] = dummy;
+		printf("---------------------------------------------\n");
+		dummy.disppt();
+	}
 	glutDisplayFunc(Draw);
 	glutKeyboardFunc(windowKey);
 	//glutSpecialFunc(windowSpecial);

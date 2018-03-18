@@ -85,7 +85,7 @@ void Projection::getData(std::ifstream& file){
 		std::string l1,l2;
 		//l1 = *s1.begin(); l2 = *s2.begin();
 		//point2labels.insert(l1,s1); point2labels.insert(l2,s2);
-		for(std::string l1 : s1)
+		for(std::string l1 : s1)	
 			for(std::string l2 : s2){
 				std::pair<std::string, std::string> ls;
 				ls = make_pair(l1, l2);
@@ -97,11 +97,11 @@ void Projection::getData(std::ifstream& file){
 
 Projection::Projection(){}
 
-int main()
-{
-	Projection tst;
-	std::ifstream file("inproj.txt");
-	tst.getData(file);
-	tst.datadisp();
-	return 0;
-}
+// int main()
+// {
+	// Projection tst;
+	// std::ifstream file("inproj.txt");
+	// tst.getData(file);
+	// tst.datadisp();
+	// return 0;
+// }
