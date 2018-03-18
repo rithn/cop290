@@ -12,6 +12,7 @@
 #include "draw.h"
 
 std::pair<float, float> solve(float a1, float b1, float c1, float a2, float b2, float c2);
+std::pair<bool,int> solvable(float a1,float a2,float a3,float b1,float b2,float b3);
 Solid reconstruct(std::vector<Projection> proj, int size);
 
 bool handlePoints(Solid* solid, std::vector<Projection> proj, int size);

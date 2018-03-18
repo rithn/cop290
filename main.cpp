@@ -14,20 +14,20 @@ std::pair<float, float> solve(float a1, float b1, float c1, float a2, float b2, 
 }
 std::pair<bool,int> solvable(float a1,float a2,float a3,float b1,float b2,float b3){
 	if(a1*b2 != a2*b1)
-		return make_pair(true,3);
+		return std::make_pair(true,3);
 	if(a2*b3 != a3*b2)
-		return make_pair(true,1);
+		return std::make_pair(true,1);
 	if(a1*b3 != a3*b1)
-		return make_pair(true,2);
+		return std::make_pair(true,2);
 	
 	if( (a1==0 && b1!=0 && a2!=0 && b2==0) || (a1!=0 && b1==0 && a2==0 && b2!=0) )
-		return make_pair(true,3);
+		return std::make_pair(true,3);
 	if( (a2==0 && b2!=0 && a3!=0 && b3==0) || (a2!=0 && b2==0 && a3==0 && b3!=0) )
-		return make_pair(true,1);
+		return std::make_pair(true,1);
 	if( (a1==0 && b1!=0 && a3!=0 && b3==0) || (a1!=0 && b1==0 && a3==0 && b3!=0) )
-		return make_pair(true,2);
+		return std::make_pair(true,2);
 	
-	return make_pair(false,0);
+	return std::make_pair(false,0);
 }
 
 bool handlePoints(Solid* solid, std::vector<Projection> proj, int size){
