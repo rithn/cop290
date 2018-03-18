@@ -1,0 +1,4 @@
+0.0 0.0 0.0 origin
+0.0 1.0 0.0 0.0 0.0 1.0 1.0 0.0 0.0
+0.3 0.3 0.0 A B terminate 0.7 0.3 0.0 D C terminate 0.7 0.7 0.0 H G terminate 0.3 0.7 0.0 E F terminate 0.0 0.0 0.0 terminate
+A B terminate E F terminate E F terminate H G terminate H G terminate D C terminate D C terminate A B terminate terminate
