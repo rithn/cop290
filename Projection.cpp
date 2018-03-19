@@ -88,7 +88,9 @@ void Projection::getData(std::ifstream& file){
 		for(std::string l1 : s1)	
 			for(std::string l2 : s2){
 				std::pair<std::string, std::string> ls;
-				ls = make_pair(l1, l2);
+				ls = std::make_pair(l1, l2);
+				lineseg_arr[ls] = false;
+				ls = std::make_pair(l2, l1);
 				lineseg_arr[ls] = false;
 			}
 	}

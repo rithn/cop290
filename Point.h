@@ -18,8 +18,8 @@ class Point
 		
 		bool operator !=(Point& pt2){
 			if (this->x_coord == pt2.x_coord && this->y_coord == pt2.y_coord && this->z_coord == pt2.z_coord)
-				return true;
-			return false;
+				return false;
+			return true;
 		}
 };
 
