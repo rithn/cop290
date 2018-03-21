@@ -55,14 +55,14 @@ void DrawAxes()
 	}
 };
 
-void DrawValues(){
+/* void DrawValues(){
 	if (swValues){
 		glColor3f(1.0, 1.0, 1.0);
 		printf("in drawvals\n");
 		printAt(5, 5, "Angle: (%d %d)", theta, phi);
 		printf("in drawvals end\n");
 	}
-}
+} */
 
 void DrawSegments()
 {
