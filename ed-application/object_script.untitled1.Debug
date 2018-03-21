@@ -1,0 +1,15 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\reconstruction.o
+./debug\backend.o
+./debug\draw.o
+./debug\Line.o
+./debug\Point.o
+./debug\Projection.o
+./debug\Solid.o
+./debug\projection.o
+./debug\moc_mainwindow.o
+./debug\moc_reconstruction.o
+./debug\moc_projection.o
+);

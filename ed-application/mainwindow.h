@@ -28,7 +28,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    Projection *projection;
+    Projection *proj;
     Reconstruction *reconstruction;
 };
 

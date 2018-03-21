@@ -1,0 +1,15 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\reconstruction.o
+./release\backend.o
+./release\draw.o
+./release\Line.o
+./release\Point.o
+./release\Projection.o
+./release\Solid.o
+./release\projection.o
+./release\moc_mainwindow.o
+./release\moc_reconstruction.o
+./release\moc_projection.o
+);
