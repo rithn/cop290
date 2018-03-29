@@ -22,19 +22,25 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+INCLUDEPATH += "$$PWD/../lib"
+
+LIBS += -L$$PWD/../lib
+LIBS += -lglut32 -lopengl32 -lglew32
 
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    projection.cpp \
-    reconstruction.cpp
+    reconstruction.cpp \
+	../src/*.cpp \
+    projection.cpp
 
 HEADERS += \
         mainwindow.h \
-    projection.h \
-    reconstruction.h
+    reconstruction.h \
+	../include/*.h \
+    projection.h
 
 FORMS += \
         mainwindow.ui \
-    projection.ui \
-    reconstruction.ui
+    reconstruction.ui \
+    projection.ui

@@ -1,7 +1,7 @@
 #include "projection.h"
 #include "ui_projection.h"
 
-Projection::Projection(QWidget *parent) :
+Projection::Projection(QWidget* parent) :
     QDialog(parent),
     ui(new Ui::Projection)
 {
