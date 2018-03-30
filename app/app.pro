@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui opengl
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -32,7 +32,7 @@ SOURCES += \
     ..\src\Line.cpp \
     ..\src\Point.cpp \
     ..\src\Projection.cpp \
-    ..\src\draw.cpp
+    glwidget.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -42,7 +42,7 @@ HEADERS += \
     ..\include\Line.h \
     ..\include\Point.h \
     ..\include\Projection.h \
-    ..\include\draw.h
+    glwidget.h
 
 FORMS += \
         mainwindow.ui \

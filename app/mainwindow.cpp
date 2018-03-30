@@ -29,7 +29,7 @@ void MainWindow::on_pushButton_clicked()
     std::ifstream solfile(input_solid.toStdString());
     solid.getData(solfile);
     solid.datadisp();
-    ::render(&solid);
+    //::render(&solid);
     //std::cout << "Input solid file: " << input_solid.toStdString() << std::endl;
     //QDesktopServices::openUrl( QUrl("file:///"+input_solid, QUrl::TolerantMode) );
     //QMessageBox::information(this,tr("File Name"),filename);

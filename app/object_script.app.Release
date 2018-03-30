@@ -1,0 +1,15 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\proj_display.o
+./release\solid_display.o
+./release\Solid.o
+./release\Line.o
+./release\Point.o
+./release\Projection.o
+./release\glwidget.o
+./release\moc_mainwindow.o
+./release\moc_proj_display.o
+./release\moc_solid_display.o
+./release\moc_glwidget.o
+);

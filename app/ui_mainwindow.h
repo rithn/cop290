@@ -16,10 +16,9 @@
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QStatusBar>
-#include <QtWidgets/QToolBar>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -28,52 +27,102 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QGroupBox *groupBox_2;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_3;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout_3;
     QGroupBox *groupBox;
+    QVBoxLayout *verticalLayout;
     QPushButton *pushButton;
+    QSpacerItem *verticalSpacer;
     QPushButton *pushButton_4;
-    QMenuBar *menuBar;
-    QToolBar *mainToolBar;
-    QStatusBar *statusBar;
+    QSpacerItem *verticalSpacer_3;
+    QWidget *widget1;
+    QVBoxLayout *verticalLayout_4;
+    QGroupBox *groupBox_2;
+    QVBoxLayout *verticalLayout_2;
+    QPushButton *pushButton_2;
+    QSpacerItem *verticalSpacer_2;
+    QPushButton *pushButton_3;
+    QSpacerItem *verticalSpacer_4;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(400, 300);
+        MainWindow->setWindowModality(Qt::ApplicationModal);
+        MainWindow->resize(433, 610);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        groupBox_2 = new QGroupBox(centralWidget);
-        groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
-        groupBox_2->setGeometry(QRect(220, 30, 131, 191));
-        pushButton_2 = new QPushButton(groupBox_2);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(0, 20, 131, 28));
-        pushButton_3 = new QPushButton(groupBox_2);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(0, 60, 111, 28));
-        groupBox = new QGroupBox(centralWidget);
+        widget = new QWidget(centralWidget);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(60, 10, 119, 183));
+        verticalLayout_3 = new QVBoxLayout(widget);
+        verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
+        groupBox = new QGroupBox(widget);
         groupBox->setObjectName(QStringLiteral("groupBox"));
-        groupBox->setGeometry(QRect(60, 30, 131, 201));
+        verticalLayout = new QVBoxLayout(groupBox);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         pushButton = new QPushButton(groupBox);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(10, 20, 93, 28));
+
+        verticalLayout->addWidget(pushButton);
+
+        verticalSpacer = new QSpacerItem(20, 13, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer);
+
         pushButton_4 = new QPushButton(groupBox);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        pushButton_4->setGeometry(QRect(10, 60, 93, 28));
+
+        verticalLayout->addWidget(pushButton_4);
+
+
+        verticalLayout_3->addWidget(groupBox);
+
+        verticalSpacer_3 = new QSpacerItem(20, 48, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_3->addItem(verticalSpacer_3);
+
+        widget1 = new QWidget(centralWidget);
+        widget1->setObjectName(QStringLiteral("widget1"));
+        widget1->setGeometry(QRect(220, 10, 141, 171));
+        verticalLayout_4 = new QVBoxLayout(widget1);
+        verticalLayout_4->setSpacing(6);
+        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        verticalLayout_4->setContentsMargins(0, 0, 0, 0);
+        groupBox_2 = new QGroupBox(widget1);
+        groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
+        verticalLayout_2 = new QVBoxLayout(groupBox_2);
+        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        pushButton_2 = new QPushButton(groupBox_2);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+
+        verticalLayout_2->addWidget(pushButton_2);
+
+        verticalSpacer_2 = new QSpacerItem(20, 11, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer_2);
+
+        pushButton_3 = new QPushButton(groupBox_2);
+        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+
+        verticalLayout_2->addWidget(pushButton_3);
+
+
+        verticalLayout_4->addWidget(groupBox_2);
+
+        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_4->addItem(verticalSpacer_4);
+
         MainWindow->setCentralWidget(centralWidget);
-        menuBar = new QMenuBar(MainWindow);
-        menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 400, 26));
-        MainWindow->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(MainWindow);
-        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-        MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
-        statusBar = new QStatusBar(MainWindow);
-        statusBar->setObjectName(QStringLiteral("statusBar"));
-        MainWindow->setStatusBar(statusBar);
 
         retranslateUi(MainWindow);
 
@@ -82,13 +131,13 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
-        groupBox_2->setTitle(QApplication::translate("MainWindow", "2D to 3D", nullptr));
-        pushButton_2->setText(QApplication::translate("MainWindow", "LOAD PROJECTION", nullptr));
-        pushButton_3->setText(QApplication::translate("MainWindow", "RECONSTRUCT", nullptr));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "app", nullptr));
         groupBox->setTitle(QApplication::translate("MainWindow", "3D to 2D", nullptr));
         pushButton->setText(QApplication::translate("MainWindow", "LOAD SOLID", nullptr));
         pushButton_4->setText(QApplication::translate("MainWindow", "PROJECT", nullptr));
+        groupBox_2->setTitle(QApplication::translate("MainWindow", "2D to 3D", nullptr));
+        pushButton_2->setText(QApplication::translate("MainWindow", "LOAD PROJECTION", nullptr));
+        pushButton_3->setText(QApplication::translate("MainWindow", "RECONSTRUCT", nullptr));
     } // retranslateUi
 
 };

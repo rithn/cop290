@@ -6,7 +6,7 @@
 #include "proj_display.h"
 #include "solid_display.h"
 
-#include "..\include\draw.h"
+#include "..\include\Solid.h"
 
 namespace Ui {
 class MainWindow;
