@@ -1,9 +1,12 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <iostream>
 #include <QMainWindow>
 #include "proj_display.h"
 #include "solid_display.h"
+
+#include "..\include\draw.h"
 
 namespace Ui {
 class MainWindow;

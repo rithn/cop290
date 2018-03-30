@@ -22,10 +22,15 @@ void MainWindow::on_pushButton_clicked()
     QString input_solid = QFileDialog::getOpenFileName(
                 this,
                 tr("Open File"),
-                "C:/Users/Harshit(SH)/Desktop/ed_data",
+                "../inputfiles",
                 "All files (*.*);;Text File (*.txt)"
                 );
-
+    Solid solid;
+    std::ifstream solfile(input_solid.toStdString());
+    solid.getData(solfile);
+    solid.datadisp();
+    ::render(&solid);
+    //std::cout << "Input solid file: " << input_solid.toStdString() << std::endl;
     //QDesktopServices::openUrl( QUrl("file:///"+input_solid, QUrl::TolerantMode) );
     //QMessageBox::information(this,tr("File Name"),filename);
 }

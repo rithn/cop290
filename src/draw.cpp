@@ -132,7 +132,7 @@ void Initialize() {
 }
 
 void render(Solid *sptr, int iArgc, char** cppArgv) {
-	glutInit(&iArgc, cppArgv);
+    glutInit(&iArgc, cppArgv);
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 	glutInitWindowSize(250, 250);
 	glutInitWindowPosition(200, 200);
@@ -147,7 +147,7 @@ void render(Solid *sptr, int iArgc, char** cppArgv) {
 }
 
 void render(Projection *pptr, int iArgc, char** cppArgv) {
-	glutInit(&iArgc, cppArgv);
+    glutInit(&iArgc, cppArgv);
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 	glutInitWindowSize(250, 250);
 	glutInitWindowPosition(200, 200);

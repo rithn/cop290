@@ -4,9 +4,10 @@ INPUT(
 ./debug\proj_display.o
 ./debug\solid_display.o
 ./debug\Solid.o
-./debug\Point.o
 ./debug\Line.o
+./debug\Point.o
 ./debug\Projection.o
+./debug\draw.o
 ./debug\moc_mainwindow.o
 ./debug\moc_proj_display.o
 ./debug\moc_solid_display.o

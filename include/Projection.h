@@ -34,7 +34,7 @@ class Projection
 		// void render();
 		void getData(std::ifstream& file);
 		void datadisp();
-		Projection();
+        // Projection();
 };
 
 #endif

@@ -4,9 +4,10 @@ INPUT(
 ./release\proj_display.o
 ./release\solid_display.o
 ./release\Solid.o
-./release\Point.o
 ./release\Line.o
+./release\Point.o
 ./release\Projection.o
+./release\draw.o
 ./release\moc_mainwindow.o
 ./release\moc_proj_display.o
 ./release\moc_solid_display.o

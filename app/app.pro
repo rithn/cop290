@@ -27,12 +27,22 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     proj_display.cpp \
-    solid_display.cpp
+    solid_display.cpp \
+    ..\src\Solid.cpp \
+    ..\src\Line.cpp \
+    ..\src\Point.cpp \
+    ..\src\Projection.cpp \
+    ..\src\draw.cpp
 
 HEADERS += \
         mainwindow.h \
     proj_display.h \
-    solid_display.h
+    solid_display.h \
+    ..\include\Solid.h \
+    ..\include\Line.h \
+    ..\include\Point.h \
+    ..\include\Projection.h \
+    ..\include\draw.h
 
 FORMS += \
         mainwindow.ui \

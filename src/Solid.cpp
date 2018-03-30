@@ -3,7 +3,8 @@
 void Solid::getData(std::ifstream& file){
 	
 	// read points from file ( points: (f,f,f,s),(....), )
-	Point point;
+    // std::cout << "reading\n";
+    Point point;
 	float x_coord, y_coord, z_coord;
 	std::string label;
 	std::string terminator = "terminate";

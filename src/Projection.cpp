@@ -97,7 +97,7 @@ inline void Projection::getData(std::ifstream& file){
 	// return;
 }
 
-inline Projection::Projection(){}
+// inline Projection::Projection(){}
 
 // int main()
 // {
