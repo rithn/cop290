@@ -40,7 +40,7 @@ std::pair<bool,int> solvable(float a1,float a2,float a3,float b1,float b2,float 
 	return std::make_pair(false,0);
 }
 
-bool handlePoints(Solid* solid, std::vector<projection> proj, int size){
+bool handlePoints(Solid* solid, std::vector<Projection> proj, int size){
 	
 	if(size<2)
 		return false;  // Reconstruction isn't possible with less than 2 projs
@@ -147,13 +147,13 @@ bool handlePoints(Solid* solid, std::vector<projection> proj, int size){
 	return true;
 }
 
-void handleLines(Solid* solid, std::vector<projection> projs, int size)
+void handleLines(Solid* solid, std::vector<Projection> projs, int size)
 {	int flag;
-    for (projection proj: projs){
+    for (Projection proj: projs){
 		for (std::pair<std::pair<std::string, std::string>,bool> lseg : proj.lineseg_arr){
 			flag = 0;
 			// std::cout << lseg.first.first << " " << lseg.first.second << std::endl;
-            for(projection proj2:projs){
+            for(Projection proj2:projs){
 				// proj2.point_arr[lseg.first.first].disppt();
 				// proj2.point_arr[lseg.first.second].disppt();
 				// if (proj2.lineseg_arr.find(lseg.first) != proj2.lineseg_arr.end()){
@@ -176,7 +176,7 @@ void handleLines(Solid* solid, std::vector<projection> projs, int size)
 	}
 }
 
-Solid reconstruct(std::vector<projection> proj, int nproj){
+Solid reconstruct(std::vector<Projection> proj, int nproj){
 	
 	Solid solid;
 	// printf("re\n");
@@ -212,7 +212,7 @@ int main2(int argc, char** argv)
 	// render(&p1, argc, argv);
 	
 	// printf("hi\n");
-    projection tst1, tst2, tst3;
+    Projection tst1, tst2, tst3;
 	std::ifstream file1("inproj1.txt");
 	tst1.getData(file1);
 	std::ifstream file2("inproj2.txt");
@@ -220,8 +220,8 @@ int main2(int argc, char** argv)
 	std::ifstream file3("inproj3.txt");
 	tst3.getData(file3);
 	// printf("hiya\n");
-    projection projlist[] = {tst1, tst2, tst3};
-    std::vector<projection> projs(projlist, projlist+ sizeof(projlist)/sizeof(projection));
+    Projection projlist[] = {tst1, tst2, tst3};
+    std::vector<Projection> projs(projlist, projlist+ sizeof(projlist)/sizeof(Projection));
 	// printf("hing\n");
 	Solid tstsolid = reconstruct(projs, 3);
 	tstsolid.datadisp();

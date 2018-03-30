@@ -30,7 +30,7 @@ void Solid::getData(std::ifstream& file){
 		ls = make_pair(l1, l2);
 		lineseg_arr[ls] = true;
 	}
-	// read the projection planes (planes: size (...),(...), )
+	// read the Projection planes (planes: size (...),(...), )
 	Line normal;
 	float dir_rat1, dir_rat2, dir_rat3;
 	while(file>>dir_rat1>>dir_rat2>>dir_rat3){
@@ -55,12 +55,12 @@ void Solid::datadisp()
 	}
 }
 
-projection Solid::project(Line planenorm)
+Projection Solid::project(Line planenorm)
 {
 	Point ori(0.0, 0.0, 0.0, "planeorigin");
 	Line ax1 = choose_firstax(planenorm);
 	Line ax2 = choose_secondax(planenorm, ax1);
-    projection proj;
+    Projection proj;
 	proj.origin = ori;
 	proj.axis1 = ax1;
 	proj.axis2 = ax2;

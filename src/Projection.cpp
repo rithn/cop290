@@ -1,7 +1,7 @@
-#include "../include/projection.h"
+#include "../include/Projection.h"
 
 
-inline void projection::datadisp()
+inline void Projection::datadisp()
 {
 	std::cout << "origin: "; origin.disppt();
 	std::cout<<"axis1: "; axis1.displn();
@@ -25,7 +25,7 @@ inline void projection::datadisp()
 	}*/
 }
 
-inline void projection::getData(std::ifstream& file){
+inline void Projection::getData(std::ifstream& file){
 	
 	// read origin from file (x y z label) !!CAUTION TERMINATOR IS NOT REQD, SO PLS DON'T ADD IT IN INPUT FILE
 	float x_coord, y_coord, z_coord;
@@ -97,11 +97,11 @@ inline void projection::getData(std::ifstream& file){
 	// return;
 }
 
-inline projection::projection(){}
+inline Projection::Projection(){}
 
 // int main()
 // {
-	// projection tst;
+	// Projection tst;
 	// std::ifstream file("inproj.txt");
 	// tst.getData(file);
 	// tst.datadisp();

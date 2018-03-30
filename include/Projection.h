@@ -22,7 +22,7 @@ public:
   }
 };
 
-class projection 
+class Projection 
 {
 	public: 
 		Point origin;
@@ -34,7 +34,7 @@ class projection
 		// void render();
 		void getData(std::ifstream& file);
 		void datadisp();
-		projection();
+		Projection();
 };
 
 #endif

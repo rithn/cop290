@@ -126,7 +126,7 @@ void Draw() {
 
 void Initialize() {
 	glClearColor(0.0, 0.0, 0.0, 0.0);
-	glMatrixMode(GL_PROJECTION);
+	glMatrixMode(GL_Projection);
 	glLoadIdentity();
 	glOrtho(0.0, 1.0, 0.0, 1.0, -1.0, 1.0);
 }
@@ -146,7 +146,7 @@ void render(Solid *sptr, int iArgc, char** cppArgv) {
 	glutMainLoop();
 }
 
-void render(projection *pptr, int iArgc, char** cppArgv) {
+void render(Projection *pptr, int iArgc, char** cppArgv) {
 	glutInit(&iArgc, cppArgv);
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 	glutInitWindowSize(250, 250);

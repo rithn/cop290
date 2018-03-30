@@ -212,6 +212,7 @@ Makefile: C:/Users/Soumya/Desktop/cop290/app/app.pro ../../../qt/Qt5.10.1/5.10.1
 		../../../qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/features/qt_config.prf \
 		../../../qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/win32-g++/qmake.conf \
 		../../../qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/features/exclusive_builds.prf \
 		../../../qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/features/toolchain.prf \
 		../../../qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/features/default_pre.prf \
@@ -390,6 +391,7 @@ Makefile: C:/Users/Soumya/Desktop/cop290/app/app.pro ../../../qt/Qt5.10.1/5.10.1
 ../../../qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/features/qt_config.prf:
 ../../../qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/win32-g++/qmake.conf:
 ../../../qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/features/exclusive_builds.prf:
 ../../../qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/features/toolchain.prf:
 ../../../qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/features/default_pre.prf:

@@ -26,7 +26,7 @@ void Draw();
 void Initialize();
 
 void render(Solid *sptr, int iArgc, char** cppArgv);
-void render(projection *pptr, int iArgc, char** cppArgv);
+void render(Projection *pptr, int iArgc, char** cppArgv);
 
 void printv(va_list args, const char* format);
 

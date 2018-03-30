@@ -23,7 +23,7 @@ class Solid
 		//Face face_arr[];
 		std::vector<Line> proj_planes;
 		void getData(std::ifstream& file);
-        projection project(Line plane);
+        Projection project(Line plane);
 		void datadisp();
 		//void render();
 };
