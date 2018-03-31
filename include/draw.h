@@ -15,7 +15,6 @@
 // #include "LineSegment.h"
 #include "Solid.h"
 // #include "Projection.h"
-#include "glew.h"
 #include "glut.h"
 
 
