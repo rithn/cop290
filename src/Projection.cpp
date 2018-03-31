@@ -30,30 +30,30 @@ inline void Projection::getData(std::ifstream& file){
 	// read origin from file (x y z label) !!CAUTION TERMINATOR IS NOT REQD, SO PLS DON'T ADD IT IN INPUT FILE
 	float x_coord, y_coord, z_coord;
 	std::string label;
-	std::string terminator = "terminate";
+	std::string terminator = ";";
 	
-	
+	file>>label; // to skip the "origin" tag in the input file
 	file>>x_coord>>y_coord>>z_coord>>label;
 	origin = Point(x_coord,y_coord,z_coord,label);
 	
 	// read axes and normal from file (x y z ... ...) !!CAUTION TERMINATOR IS NOT REQD., SO PLS DON'T ADD IT IN INPUT FILE
+	file>>label; // to skip tag in input file
 	file>>x_coord>>y_coord>>z_coord;
 	axis1 = Line(x_coord,y_coord,z_coord);
 	
+	file>>label; // to skip tag in input file
 	file>>x_coord>>y_coord>>z_coord;
 	axis2 = Line(x_coord,y_coord,z_coord);
 	
+	file>>label; // to skip tag in input file
 	file>>x_coord>>y_coord>>z_coord;
 	normal = Line(x_coord,y_coord,z_coord);
 	
 	// read points from file (f f f s1 s2 s3 s4 ...)
-	while(file>>x_coord>>y_coord>>z_coord>>label){
-		
-		if( !label.compare(terminator) )
-			break;
+	file>>label; // to skip tag in input file
+	while(file>>x_coord>>y_coord>>z_coord){
 		
 		std::set<std::string> sop;
-		sop.insert(label);
 		while(file>>label){
 			if( !label.compare(terminator) )
 				break;
@@ -63,15 +63,18 @@ inline void Projection::getData(std::ifstream& file){
 			Point point(x_coord,y_coord,z_coord,label);
 			point_arr[point.label] = point;
 		}
+		// check for terminator
+		file>>label;
+		if( !label.compare(terminator) )
+			break;
 	}
 	
 	// read lines from file (s1 s2 ...)
+	file>>label; // to skip tag in input file
 	std::string l;
-	while(file>>l){
+	while(true){
 		std::set<std::string> s1,s2;
-		if( !l.compare(terminator) )
-			break;
-		s1.insert(l);
+		
 		while(file>>l){
 			if( !l.compare(terminator) )
 				break;
@@ -93,6 +96,10 @@ inline void Projection::getData(std::ifstream& file){
 				ls = std::make_pair(l2, l1);
 				lineseg_arr[ls] = false;
 			}
+		// check for terminator
+		file>>label;
+		if( !label.compare(terminator) )
+			break;
 	}
 	// return;
 }

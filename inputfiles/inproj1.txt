@@ -1,4 +1,6 @@
-0.0 0.0 0.0 origin
-1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0
-0.3 0.3 0.0 A E terminate 0.7 0.3 0.0 B F terminate 0.7 0.7 0.0 C G terminate 0.3 0.7 0.0 D H terminate 0.0 0.0 0.0 terminate
-A E terminate B F terminate B F terminate C G terminate C G terminate D H terminate D H terminate A E terminate terminate
+Origin: 0.0 0.0 0.0 origin
+Axis1: 1.0 0.0 0.0
+Axis2: 0.0 1.0 0.0
+Normal: 0.0 0.0 1.0
+Points_with_labels: 0.3 0.3 0.0 A E ; , 0.7 0.3 0.0 B F ; , 0.7 0.7 0.0 C G ; , 0.3 0.7 0.0 D H ; ;
+Lines: A E ; B F ; , B F ; C G ; , C G ; D H ; , D H ; A E ; ;
