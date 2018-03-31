@@ -227,5 +227,29 @@ int main(int argc, char** argv)
 	tstsolid.datadisp();
 	render(&tstsolid, argc, argv);
 	// printf("hight\n");
+	//*********************************
+	// ****** HERE GOES THE FSM *******
+	//(S=STATE ; The whole FSM goes in an infinite loop)
+	
+	// S1 : Window for selecting b/w 2D to 3D and vice versa and a close button
+	//		Transitions: a) exit the FSM if the close button is pressed
+	//					 b) to S2 when choice is made
+	
+	// S2 : Let him enter filename in the console
+	//		Transitions: a) If incorrect file name, go to S1
+	//					 b) Else if 2D to 3D => state changes to S3 , else S4
+	
+	
+	// S3 : Window having the reconstructed 3D solid (mouse rotatable, if possible) and 
+	//		a button named "exit to main window" in the corner
+	//		Transition: to S1 if the button is clicked else no change
+	
+	// S4 : 2 Windows with following functionality
+	//      a) 1st having buttons for the projection type (3D view or 2D view) and projection number (selecting the projection)
+	//         (projection type buttons will behave as radio buttons and the projection number as check boxes as in the prev GUI)
+	//		   and a button named "exit to main window" in the corner
+	// 		b) 2nd displaying the resultant projection
+	//		Transition: to S1 if the exit button is clicked else no change
+	
 	return 0;
 }
