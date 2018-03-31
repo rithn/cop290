@@ -15,7 +15,7 @@
 // #include "LineSegment.h"
 #include "Solid.h"
 // #include "Projection.h"
-#include "glut.h"
+#include "freeglut.h"
 
 
 void DrawSegments();

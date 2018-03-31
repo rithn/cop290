@@ -78,7 +78,7 @@ void DrawSegments()
 
 void windowKey(unsigned char key, int x, int y ){
 	if (key == 27)
-		exit(0);
+		glutLeaveMainLoop();
 	else if (key == 'a' | key == 'A')
 		swAxes = not swAxes;
 	else if (key == 'v' | key == 'V')
@@ -138,6 +138,7 @@ void render(Solid *sptr, int iArgc, char** cppArgv) {
 	glutInitWindowPosition(200, 200);
 	glutCreateWindow("render");
 	Initialize();
+	glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_CONTINUE_EXECUTION);
 	lineseg_arr = sptr -> lineseg_arr;
 	point_arr = sptr -> point_arr;
 	glutDisplayFunc(Draw);
@@ -154,6 +155,7 @@ void render(Projection *pptr, int iArgc, char** cppArgv) {
 	glutCreateWindow(windowname);
 	// printf("in render p\n");
 	Initialize();
+	glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_CONTINUE_EXECUTION);
 	lineseg_arr = pptr->lineseg_arr;
 	// printf("in render pr\n");
 	point_arr = pptr->point_arr;
@@ -173,4 +175,5 @@ void render(Projection *pptr, int iArgc, char** cppArgv) {
 	glutKeyboardFunc(windowKey);
 	//glutSpecialFunc(windowSpecial);
 	glutMainLoop();
+	std::cout << "###########################" << std::endl;
 }

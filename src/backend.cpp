@@ -211,7 +211,7 @@ int main(int argc, char** argv)
 	// p1.datadisp();
 	// render(&p1, argc, argv);
 	
-	// printf("hi\n");
+	// std::cout << "hi\n";
     Projection tst1, tst2, tst3;
 	std::ifstream file1("../inputfiles/inproj1.txt");
 	tst1.getData(file1);
@@ -224,8 +224,11 @@ int main(int argc, char** argv)
     std::vector<Projection> projs(projlist, projlist+ sizeof(projlist)/sizeof(Projection));
 	// printf("hing\n");
 	Solid tstsolid = reconstruct(projs, 3);
-	tstsolid.datadisp();
+	// tstsolid.datadisp();
 	render(&tstsolid, argc, argv);
 	// printf("hight\n");
+	int i;
+	std::cout << "Enter anything to exit: ";
+	std::cin >> i;
 	return 0;
 }
