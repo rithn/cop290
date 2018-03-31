@@ -190,7 +190,7 @@ Solid reconstruct(std::vector<Projection> proj, int nproj){
 	return solid;
 }
 
-int main2(int argc, char** argv)
+int main(int argc, char** argv)
 {
 	
 	// Solid solid;
@@ -213,11 +213,11 @@ int main2(int argc, char** argv)
 	
 	// printf("hi\n");
     Projection tst1, tst2, tst3;
-	std::ifstream file1("inproj1.txt");
+	std::ifstream file1("../inputfiles/inproj1.txt");
 	tst1.getData(file1);
-	std::ifstream file2("inproj2.txt");
+	std::ifstream file2("../inputfiles/inproj2.txt");
 	tst2.getData(file2);
-	std::ifstream file3("inproj3.txt");
+	std::ifstream file3("../inputfiles/inproj3.txt");
 	tst3.getData(file3);
 	// printf("hiya\n");
     Projection projlist[] = {tst1, tst2, tst3};

@@ -1,7 +1,7 @@
 #include "../include/Projection.h"
 
 
-inline void Projection::datadisp()
+void Projection::datadisp()
 {
 	std::cout << "origin: "; origin.disppt();
 	std::cout<<"axis1: "; axis1.displn();
@@ -25,7 +25,7 @@ inline void Projection::datadisp()
 	}*/
 }
 
-inline void Projection::getData(std::ifstream& file){
+void Projection::getData(std::ifstream& file){
 	
 	// read origin from file (x y z label) !!CAUTION TERMINATOR IS NOT REQD, SO PLS DON'T ADD IT IN INPUT FILE
 	float x_coord, y_coord, z_coord;
