@@ -7,36 +7,48 @@ void Solid::getData(std::ifstream& file){
     Point point;
 	float x_coord, y_coord, z_coord;
 	std::string label;
-	std::string terminator = "terminate";
-	//fscanf(file,"( %f,%f,%f,%s )", &x_coord,&y_coord,&z_coord,&label);
+	std::string terminator = ";";
+	file>>label; // this is to skip the "points" tag in the input file
+	
 	while(file>>x_coord>>y_coord>>z_coord>>label){
-		if( !label.compare(terminator) )
-			break;
+		
 		point.x_coord = x_coord;
 		point.y_coord = y_coord;
 		point.z_coord = z_coord;
 		//printf("Hey\n");
 		point.label = label;
 		point_arr[point.label] = point;
+		// check for terminator
+		file>>label;
+		if( !label.compare(terminator) )
+			break;
 	}
 	
 	// read lines from file ( lines: (s1,s2),(..), )
 	std::string l1,l2;
 	// std::set<std::string> s1, s2;
 	std::pair<std::string, std::string> ls;
-	//fscanf(file,"( %s ,%s )", &l1,&l2);
+	
+	file>>label; // to skip the "lines" tag in the input file
 	while(file>>l1>>l2){
-		if( !l1.compare(terminator) )
-			break;
 		ls = make_pair(l1, l2);
 		lineseg_arr[ls] = true;
+		// check for terminator
+		file>>label;
+		if( !label.compare(terminator) )
+			break;
 	}
 	// read the Projection planes (planes: size (...),(...), )
 	Line normal;
 	float dir_rat1, dir_rat2, dir_rat3;
+	file>>label; // to skip the tag in the input file
 	while(file>>dir_rat1>>dir_rat2>>dir_rat3){
 		normal = {dir_rat1, dir_rat2, dir_rat3};
 		proj_planes.push_back(normal);
+		// check for terminator
+		file>>label;
+		if( !label.compare(terminator) )
+			break;
 	}
 	return;
 }
