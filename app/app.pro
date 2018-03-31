@@ -22,6 +22,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+LIBS += -lopengl32 -L../lib -lglut32
 
 SOURCES += \
         main.cpp \
@@ -42,6 +43,7 @@ HEADERS += \
     ..\include\Line.h \
     ..\include\Point.h \
     ..\include\Projection.h \
+    ..\include\glut.h \
     glwidget.h
 
 FORMS += \

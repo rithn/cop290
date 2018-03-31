@@ -14,12 +14,14 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QGroupBox>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include "glwidget.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -27,40 +29,40 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QWidget *widget;
+    QVBoxLayout *verticalLayout_5;
+    QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout_3;
     QGroupBox *groupBox;
     QVBoxLayout *verticalLayout;
     QPushButton *pushButton;
-    QSpacerItem *verticalSpacer;
     QPushButton *pushButton_4;
-    QSpacerItem *verticalSpacer_3;
-    QWidget *widget1;
+    QSpacerItem *horizontalSpacer;
     QVBoxLayout *verticalLayout_4;
     QGroupBox *groupBox_2;
     QVBoxLayout *verticalLayout_2;
     QPushButton *pushButton_2;
-    QSpacerItem *verticalSpacer_2;
     QPushButton *pushButton_3;
-    QSpacerItem *verticalSpacer_4;
+    GLWidget *widget;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
         MainWindow->setWindowModality(Qt::ApplicationModal);
-        MainWindow->resize(433, 610);
+        MainWindow->resize(315, 273);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        widget = new QWidget(centralWidget);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(60, 10, 119, 183));
-        verticalLayout_3 = new QVBoxLayout(widget);
+        verticalLayout_5 = new QVBoxLayout(centralWidget);
+        verticalLayout_5->setSpacing(6);
+        verticalLayout_5->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setSpacing(6);
-        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
-        groupBox = new QGroupBox(widget);
+        groupBox = new QGroupBox(centralWidget);
         groupBox->setObjectName(QStringLiteral("groupBox"));
         verticalLayout = new QVBoxLayout(groupBox);
         verticalLayout->setSpacing(6);
@@ -71,10 +73,6 @@ public:
 
         verticalLayout->addWidget(pushButton);
 
-        verticalSpacer = new QSpacerItem(20, 13, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer);
-
         pushButton_4 = new QPushButton(groupBox);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
 
@@ -83,19 +81,17 @@ public:
 
         verticalLayout_3->addWidget(groupBox);
 
-        verticalSpacer_3 = new QSpacerItem(20, 48, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_3->addItem(verticalSpacer_3);
+        horizontalLayout->addLayout(verticalLayout_3);
 
-        widget1 = new QWidget(centralWidget);
-        widget1->setObjectName(QStringLiteral("widget1"));
-        widget1->setGeometry(QRect(220, 10, 141, 171));
-        verticalLayout_4 = new QVBoxLayout(widget1);
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
+
+        verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setSpacing(6);
-        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        verticalLayout_4->setContentsMargins(0, 0, 0, 0);
-        groupBox_2 = new QGroupBox(widget1);
+        groupBox_2 = new QGroupBox(centralWidget);
         groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
         verticalLayout_2 = new QVBoxLayout(groupBox_2);
         verticalLayout_2->setSpacing(6);
@@ -106,10 +102,6 @@ public:
 
         verticalLayout_2->addWidget(pushButton_2);
 
-        verticalSpacer_2 = new QSpacerItem(20, 11, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_2->addItem(verticalSpacer_2);
-
         pushButton_3 = new QPushButton(groupBox_2);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
 
@@ -118,9 +110,21 @@ public:
 
         verticalLayout_4->addWidget(groupBox_2);
 
-        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_4->addItem(verticalSpacer_4);
+        horizontalLayout->addLayout(verticalLayout_4);
+
+
+        verticalLayout_5->addLayout(horizontalLayout);
+
+        widget = new GLWidget(centralWidget);
+        widget->setObjectName(QStringLiteral("widget"));
+        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(widget->sizePolicy().hasHeightForWidth());
+        widget->setSizePolicy(sizePolicy);
+
+        verticalLayout_5->addWidget(widget);
 
         MainWindow->setCentralWidget(centralWidget);
 
