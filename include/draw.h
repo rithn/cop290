@@ -10,11 +10,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
-
-// #include "Point.h"
-// #include "LineSegment.h"
 #include "Solid.h"
-// #include "Projection.h"
 #include "freeglut.h"
 
 
@@ -25,7 +21,8 @@ void Draw();
 void Initialize();
 
 void render(Solid *sptr, int iArgc, char** cppArgv);
-void render(Projection *pptr, int iArgc, char** cppArgv);
+// void render(Projection *pptr, int iArgc, char** cppArgv);
+void render_result(Solid *sptr, std::vector<Projection> projs, int argc, char** argv);
 
 void printv(va_list args, const char* format);
 

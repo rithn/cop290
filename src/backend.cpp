@@ -9,20 +9,24 @@ std::pair<float, float> solve(float a1, float b1, float c1, float a2, float b2, 
 	// std::cout << a1 << " "<< b1 << " "<< c1 << " "<< a2 << " "<< b2 << " "<< c2 << " \n";
 	std::pair<float, float> ans;
 	if (a1 == 0 && b2 == 0){ 
-		ans.first = c1/b1;
-		ans.second = c2/a2;
+		// std::cout << "1\n";
+		ans.second = c1/b1;
+		ans.first = c2/a2;
 	}
 	else if (a2 == 0 && b1 == 0){
+		// std::cout << "2\n";
 		ans.first = c1/a1;
 		ans.second = c2/b2;
 	}
 	else{
+		// std::cout << "3\n";
 		ans.first = -(b1*c2-b2*c1)/(a1*b2-a2*b1);
 		ans.second = (a1*c2-a2*c1)/(a1*b2-a2*b1);
 	}
 	return ans;
 }
 std::pair<bool,int> solvable(float a1,float a2,float a3,float b1,float b2,float b3){
+	// std::cout << a1 << " "<< a2 << " "<< a3 << " "<< b1<< " "<<b2 << " "<<b3 <<std::endl; 
 	if(a1*b2 != a2*b1)
 		return std::make_pair(true,3);
 	if(a2*b3 != a3*b2)
@@ -66,7 +70,6 @@ bool handlePoints(Solid* solid, std::vector<Projection> proj, int size){
 			c[i].z_coord = Ro.z_coord + e1.dir_rat3*point.x_coord + e2.dir_rat3*point.y_coord;
 		}
 		std::pair<float, float> solution;
-		// if eq is solvable i.e. a1*b2 != a2*b1
 		float a1=proj[0].normal.dir_rat1, a2=proj[0].normal.dir_rat2, a3=proj[0].normal.dir_rat3, b1=proj[1].normal.dir_rat1, b2=proj[1].normal.dir_rat2, b3=proj[1].normal.dir_rat3;
 		std::pair<bool,int> check = solvable(a1,a2,a3,b1,b2,b3);
 		bool third_check=false;
@@ -97,7 +100,7 @@ bool handlePoints(Solid* solid, std::vector<Projection> proj, int size){
 			else{ //if(check.second == 2)
 				//std::cout << "check.second == 2\n";
 				solution = solve(a1, -b1, -c[0].x_coord+c[1].x_coord, a3, -b3, -c[0].z_coord+c[1].z_coord);
-				s1 = solution.second; s2 = solution.first;
+				s1 = solution.first; s2 = solution.second;
 				// std::cout << s1 << " " << s2 << std::endl;
 				// check for consistency in third-coordinate
 				if(a2*s1 - b2*s2 == -c[0].y_coord+c[1].y_coord)
@@ -237,12 +240,13 @@ int main(int argc, char** argv)
 				inp_proj.getData(file);
 				projs.push_back(inp_proj);
 			}
+			Solid dummysolid;
 			do {
 				std::cout << "Enter v to view input, m to reconstruct and q to quit: ";
 				std::cin >> ch;
 				if (ch == 'q') flag = 1;
 				else if (ch == 'm') State = 3;
-				else if (ch == 'v') std::cout << "Not done yet\n";
+				else if (ch == 'v') render_result(&dummysolid, projs, argc, argv);
 			}
 			while (ch != 'q' && ch != 'm');
 		}
@@ -261,7 +265,7 @@ int main(int argc, char** argv)
 				std::cout << "Enter v to view input, m to project and q to quit: ";
 				std::cin >> ch;
 				if (ch == 'q') flag = 1;
-				else if (ch == 'm') State = '4';
+				else if (ch == 'm') State = 4;
 				else if (ch == 'v') render(&solid, argc, argv);
 			}
 			while (ch != 'q' && ch != 'm');
@@ -273,7 +277,7 @@ int main(int argc, char** argv)
 				std::cin >> ch;
 				if (ch == 'q') flag = 1;
 				else if (ch == 'r') State = 0;
-				else if (ch == 'v') render(&solid, argc, argv);
+				else if (ch == 'v') render_result(&solid, projs, argc, argv);
 			}
 			while (ch != 'q' && ch != 'r');
 		}
@@ -286,8 +290,7 @@ int main(int argc, char** argv)
 				std::cin >> ch;
 				if (ch == 'q') flag = 1;
 				else if (ch == 'r') State = 0;
-				// Here we need a render func
-				else if (ch == 'v') std::cout << "Not done yet\n";
+				else if (ch == 'v') render_result(&solid, projs, argc, argv);
 			}
 			while (ch != 'q' && ch != 'r');
 		}
@@ -317,11 +320,11 @@ int main(int argc, char** argv)
 	
 	// std::cout << "hi\n";
     // Projection tst1, tst2, tst3;
-	// std::ifstream file1("../inputfiles/inproj1.txt");
+	// std::ifstream file1("../inputfiles/inproj3.txt");
 	// tst1.getData(file1);
 	// std::ifstream file2("../inputfiles/inproj2.txt");
 	// tst2.getData(file2);
-	// std::ifstream file3("../inputfiles/inproj3.txt");
+	// std::ifstream file3("../inputfiles/inproj1.txt");
 	// tst3.getData(file3);
 	// // printf("hiya\n");
     // Projection projlist[] = {tst1, tst2, tst3};
@@ -332,8 +335,8 @@ int main(int argc, char** argv)
 	// render(&tstsolid, argc, argv);
 	// printf("hight\n");
 	
-	int i;
-	std::cout << "Enter anything to exit: ";
-	std::cin >> i;
-	return 0;
+	// int i;
+	// std::cout << "Enter anything to exit: ";
+	// std::cin >> i;
+	// return 0;
 }
