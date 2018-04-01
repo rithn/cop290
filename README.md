@@ -29,5 +29,13 @@ Points_with_labels: x_1 y_1 z_1 label_11 label_12 ... (space separated set of la
 
 Lines: (space separated set of labels) ; (space separated set of labels) ; , ... , (space separated set of labels) ; (space separated set of labels) ; ;
 
+Interface: f - rotate left 
+	   h - rotate right
+	   g - rotate down
+	   t - rotate up
+
+	   v - move forward among views
+	   b - move back among views
 
 Reference: https://msdn.microsoft.com/en-us/library/windows/desktop/ms646829(v=vs.85).aspx#open_file
+
