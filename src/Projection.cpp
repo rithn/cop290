@@ -27,6 +27,8 @@ void Projection::datadisp()
 
 void Projection::getData(std::ifstream& file){
 	
+	lineseg_arr.clear();
+	point_arr.clear();
 	// read origin from file (x y z label) !!CAUTION TERMINATOR IS NOT REQD, SO PLS DON'T ADD IT IN INPUT FILE
 	float x_coord, y_coord, z_coord;
 	std::string label;

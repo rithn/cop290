@@ -2,6 +2,9 @@
 
 void Solid::getData(std::ifstream& file){
 	
+	lineseg_arr.clear();
+	point_arr.clear();
+	proj_planes.clear();
 	// read points from file ( points: (f,f,f,s),(....), )
     // std::cout << "reading\n";
     Point point;

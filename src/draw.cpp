@@ -95,6 +95,15 @@ void windowKey(unsigned char key, int x, int y ){
 	
 }
 
+void reshape(int w, int h){
+	if (w>=h){
+		glViewport(0, 0, (GLsizei)h, (GLsizei)h);
+	}
+	else {
+		glViewport(0, 0, (GLsizei)w, (GLsizei)w);
+	}
+}
+
 void windowSpecial(int key, int x, int y){
 	if (key = GLUT_KEY_RIGHT) theta += 5;
 	else if (key = GLUT_KEY_LEFT) theta -= 5;
@@ -142,6 +151,7 @@ void render(Solid *sptr, int iArgc, char** cppArgv) {
 	lineseg_arr = sptr -> lineseg_arr;
 	point_arr = sptr -> point_arr;
 	glutDisplayFunc(Draw);
+	glutReshapeFunc(reshape);
 	glutKeyboardFunc(windowKey);
 	glutSpecialFunc(windowSpecial);
 	glutMainLoop();
@@ -172,6 +182,7 @@ void render(Projection *pptr, int iArgc, char** cppArgv) {
 		dummy.disppt();
 	}
 	glutDisplayFunc(Draw);
+	glutReshapeFunc(reshape);
 	glutKeyboardFunc(windowKey);
 	//glutSpecialFunc(windowSpecial);
 	glutMainLoop();

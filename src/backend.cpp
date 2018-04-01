@@ -192,6 +192,99 @@ Solid reconstruct(std::vector<Projection> proj, int nproj){
 
 int main(int argc, char** argv)
 {
+	// int State = 0;
+	// char ch;
+	// int n;
+	// Solid solid;
+	// Projection inp_proj;
+	// std::vector<Line> inp_normals;
+	// std::vector<Projection> projs;
+	// std::string path;
+	// float f1, f2, f3;
+	// int flag;
+	// while (flag != 1){
+		// if (State == 0){
+			// projs.clear();
+			// inp_normals.clear();
+			// std::cout << "Enter 2 for 2d to 3d, 3 for 3d to 2d and q to quit: ";
+			// std::cin >> ch;
+			// if (ch == '2') State = 1;
+			// else if (ch == '3') State = 2;
+			// else if (ch == 'q') flag = 1;
+			// else{
+				// std::cout << "Please enter appropriate option.\n";
+			// }
+		// }
+		// else if (State == 1){
+			// std::cout << "Enter number of projections (max 6) : ";
+			// std::cin >> n;
+			// for (int i = 0; i < n; i++){
+				// std::cout << "Enter path of input projection " << i << ": ";
+				// std::cin >> path;
+				// std::ifstream file(path);
+				// inp_proj.getData(file);
+				// projs.push_back(inp_proj);
+			// }
+			// do {
+				// std::cout << "Enter v to view input, m to reconstruct and q to quit: ";
+				// std::cin >> ch;
+				// if (ch == 'q') flag = 1;
+				// else if (ch == 'm') State = 3;
+				// else if (ch == 'v') std::cout << "Not done yet\n";
+			// }
+			// while (ch != 'q' && ch != 'm');
+		// }
+		// else if (State == 2){
+			// std::cout << "Enter path of input solid\n";
+			// std::cin >> path;
+			// std::ifstream file(path);
+			// solid.getData(file);
+			// std::cout << "Enter number of projections (max 6) : ";
+			// std::cin >> n;
+			// for (int i = 0; i < n; i++){
+				// std::cout << "Enter normal for input projection " << i << ": ";
+				// std::cin >> f1 >> f2 >> f3;
+				// inp_normals.push_back(Line(f1, f2, f3));
+			// }
+			// do {
+				// std::cout << "Enter v to view input, m to project and q to quit: ";
+				// std::cin >> ch;
+				// if (ch == 'q') flag = 1;
+				// else if (ch == 'm') State = '4';
+				// else if (ch == 'v') render(&solid, argc, argv);
+			// }
+			// while (ch != 'q' && ch != 'm');
+		// }
+		// else if (State == 3){
+			// solid = reconstruct(projs, n);
+			// do {
+				// std::cout << "Enter v to view output, r to restart and q to quit: ";
+				// std::cin >> ch;
+				// if (ch == 'q') flag = 1;
+				// else if (ch == 'r') State = 0;
+				// else if (ch == 'v') render(&solid, argc, argv);
+			// }
+			// while (ch != 'q' && ch != 'r');
+		// }
+		// else if (State == 4){
+			// for (Line norm: inp_normals){
+				// projs.push_back(solid.project(norm));
+			// }
+			// do {
+				// std::cout << "Enter v to view output, r to restart and q to quit: ";
+				// std::cin >> ch;
+				// if (ch == 'q') flag = 1;
+				// else if (ch == 'r') State = 0;
+				// // Here we need a render func
+				// else if (ch == 'v') std::cout << "Not done yet\n";
+			// }
+			// while (ch != 'q' && ch != 'r');
+		// }
+		// else {
+			// std::cout << "ERROR!\n";
+			// break;
+		// }
+	// }
 	
 	// Solid solid;
 	// if(!file){
@@ -211,7 +304,7 @@ int main(int argc, char** argv)
 	// p1.datadisp();
 	// render(&p1, argc, argv);
 	
-	// std::cout << "hi\n";
+	std::cout << "hi\n";
     Projection tst1, tst2, tst3;
 	std::ifstream file1("../inputfiles/inproj1.txt");
 	tst1.getData(file1);
@@ -224,9 +317,9 @@ int main(int argc, char** argv)
     std::vector<Projection> projs(projlist, projlist+ sizeof(projlist)/sizeof(Projection));
 	// printf("hing\n");
 	Solid tstsolid = reconstruct(projs, 3);
-	// tstsolid.datadisp();
+	tstsolid.datadisp();
 	render(&tstsolid, argc, argv);
-	// printf("hight\n");
+	printf("hight\n");
 	//*********************************
 	// ****** HERE GOES THE FSM *******
 	//(S=STATE ; The whole FSM goes in an infinite loop)
