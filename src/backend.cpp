@@ -66,7 +66,7 @@ bool handlePoints(Solid* solid, std::vector<Projection> proj, int size){
 			c[i].z_coord = Ro.z_coord + e1.dir_rat3*point.x_coord + e2.dir_rat3*point.y_coord;
 		}
 		std::pair<float, float> solution;
-		// if eq is solvable i.e. a1*b2 != a2*b1
+		// if eq is solvable
 		float a1=proj[0].normal.dir_rat1, a2=proj[0].normal.dir_rat2, a3=proj[0].normal.dir_rat3, b1=proj[1].normal.dir_rat1, b2=proj[1].normal.dir_rat2, b3=proj[1].normal.dir_rat3;
 		std::pair<bool,int> check = solvable(a1,a2,a3,b1,b2,b3);
 		bool third_check=false;
