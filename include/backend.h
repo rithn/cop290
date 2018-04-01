@@ -5,7 +5,9 @@
 #include <utility>
 #include <fstream>
 #include <vector>
-//using namespace std;
+
+#include "windows.h"
+#include <iomanip>
 
 #include "Projection.h"
 #include "Solid.h"
