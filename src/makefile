@@ -1,13 +1,13 @@
 path = $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 
 test: backend.o draw.o Point.o Line.o Solid.o Projection.o
-	g++ -o test backend.o Point.o Line.o Solid.o Projection.o draw.o -lcomdlg32 -L$(path)..\lib -lfreeglut -lopengl32
+	g++ -std=c++11 -m32 -o test backend.o Point.o Line.o Solid.o Projection.o draw.o -lcomdlg32 -L$(path)..\lib -lfreeglut -lopengl32
 	
 backend.o: backend.cpp Projection.cpp Solid.cpp draw.cpp Point.cpp Line.cpp
-	g++ -c backend.cpp Projection.cpp Solid.cpp Point.cpp Line.cpp
+	g++ -std=c++11 -m32 -c backend.cpp Projection.cpp Solid.cpp Point.cpp Line.cpp
 
 draw.o: draw.cpp Solid.cpp Projection.cpp Point.cpp Line.cpp
-	g++ -c -o draw.o draw.cpp -I$(path)..\include
+	g++ -std=c++11 -m32 -c -o draw.o draw.cpp -I$(path)..\include
 	
 Solid.o: Solid.cpp Projection.cpp Line.cpp Point.cpp
 	g++ -c Solid.cpp
